@@ -1,6 +1,6 @@
 # ng2-cpf-cnpj
 
-## Installation
+## How to install
 
 To install this library, run:
 
@@ -8,15 +8,13 @@ To install this library, run:
 $ npm install ng2-cpf-cnpj --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
+## How to use
 
 ```bash
 $ npm install ng2-cpf-cnpj
 ```
 
-and then from your Angular `AppModule`:
+and add to your `app.module.ts`:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,6 +42,7 @@ Just add [cpf] or [cnpj] in your inputs:
 
 ```xml
 <input type="text" name="cpf" [(ngModel)]="cpf" [cpf]="cpf"/>
+<input type="text" name="cnpj" [(ngModel)]="cnpj" [cnpj]="cnpj" />
 ```  
 
 You can use reference to detect the error type:
@@ -53,7 +52,6 @@ You can use reference to detect the error type:
 <div *ngIf="cpfInput?.errors?.cpf">CPF Invalid</div>
 <div *ngIf="cpfInput?.errors?.required">CPF Required</div>
 ```
-
 
 ## Development
 
