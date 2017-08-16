@@ -24,8 +24,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
-import { SampleModule } from 'ng2-cpf-cnpj';
+import { CpfCnpjModule } from 'ng2-cpf-cnpj';
 
 @NgModule({
   declarations: [
@@ -33,9 +32,7 @@ import { SampleModule } from 'ng2-cpf-cnpj';
   ],
   imports: [
     BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
+    CpfCnpjModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -43,15 +40,20 @@ import { SampleModule } from 'ng2-cpf-cnpj';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+Just add [cpf] or [cnpj] in your inputs:
 
 ```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
+<input type="text" name="cpf" [(ngModel)]="cpf" [cpf]="cpf"/>
+```  
+
+You can use reference to detect the error type:
+
+```xml
+<input type="text" name="cpf" [(ngModel)]="cpf" [cpf]="cpf" #cpfInput="ngModel" required />
+<div *ngIf="cpfInput?.errors?.cpf">CPF Invalid</div>
+<div *ngIf="cpfInput?.errors?.required">CPF Required</div>
 ```
+
 
 ## Development
 

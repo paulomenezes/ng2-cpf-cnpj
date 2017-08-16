@@ -4,12 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { SampleModule } from '../../../src';
-// import { SampleModule } from 'ng2-cpf-cnpj';
+import { CpfCnpjModule } from '../../../src';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, SampleModule.forRoot()],
+  imports: [BrowserModule, FormsModule, CpfCnpjModule],
   providers: [],
   bootstrap: [AppComponent]
 })

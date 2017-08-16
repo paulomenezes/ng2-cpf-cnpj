@@ -1,44 +1,44 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  forwardRef
-} from '@angular/core';
-import * as cpfCnpj from 'cpf_cnpj';
+import { Directive, ElementRef, Input, forwardRef, OnChanges, SimpleChanges } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import * as cpfCnpj from 'cpf_cnpj';
 
 @Directive({
-  selector: '[cpf],[cnpj]',
+  selector: '[cpf],[cpf][ngModel],[cnpj],[cnpj][ngModel]',
   providers: [
     {
       multi: true,
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => SampleDirective)
+      useExisting: forwardRef(() => CpfCnpjDirective)
     }
   ]
 })
-export class SampleDirective implements Validator {
+export class CpfCnpjDirective implements Validator, OnChanges {
   @Input() cpf: string;
   @Input() cnpj: string;
 
+  private onChange: () => void;
+
   constructor(private el: ElementRef) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.onChange) {
+      this.onChange();
+    }
+  }
 
   validate(c: AbstractControl): { [key: string]: any } {
     if (this.cpf) {
       const cpf = cpfCnpj.CPF.isValid(this.cpf);
       const valid = cpf ? null : { cpf: true };
-      console.log('cpf', valid);
       return valid;
     } else if (this.cnpj) {
       const cnpj = cpfCnpj.CNPJ.isValid(this.cnpj);
       const valid = cnpj ? null : { cnpj: true };
-      console.log('cnpj', valid);
       return valid;
     }
   }
 
-  registerOnValidatorChange?(fn: () => void): void {}
+  registerOnValidatorChange?(fn: () => void): void {
+    this.onChange = fn;
+  }
 }

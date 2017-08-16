@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'app';
-  cpf: string = 'teste';
-  cnpj: string = 'teste';
+  cpf: string;
+  cnpj: string;
 }

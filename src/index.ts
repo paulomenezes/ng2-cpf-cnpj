@@ -1,26 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SampleComponent } from './sample.component';
-import { SampleDirective } from './sample.directive';
-import { SamplePipe } from './sample.pipe';
-import { SampleService } from './sample.service';
+import { CpfCnpjDirective } from './cpf-cnpj.directive';
 
-export * from './sample.component';
-export * from './sample.directive';
-export * from './sample.pipe';
-export * from './sample.service';
+export * from './cpf-cnpj.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
-  declarations: [SampleComponent, SampleDirective, SamplePipe],
-  exports: [SampleComponent, SampleDirective, SamplePipe]
+  declarations: [CpfCnpjDirective],
+  exports: [CpfCnpjDirective]
 })
-export class SampleModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: SampleModule,
-      providers: [SampleService]
-    };
-  }
-}
+export class CpfCnpjModule {}
