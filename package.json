@@ -1,6 +1,6 @@
 {
   "name": "ng2-cpf-cnpj",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -19,9 +19,7 @@
     "name": "Paulo Menezes",
     "email": "paulo.hgmenezes@gmail.com"
   },
-  "keywords": [
-    "angular"
-  ],
+  "keywords": ["angular"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/paulomenezes/ng2-cpf-cnpj/issues"
