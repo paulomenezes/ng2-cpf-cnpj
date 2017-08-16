@@ -1,6 +1,6 @@
 # ng2-cpf-cnpj
 
-Angular directive to validate CPF/CNPJ numbers, [cpf_cnpj.js](https://github.com/fnando/cpf_cnpj.js).
+Angular directive to validate CPF/CNPJ numbers, using [cpf_cnpj.js](https://github.com/fnando/cpf_cnpj.js).
 
 ## How to install
 
